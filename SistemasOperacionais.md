@@ -1,71 +1,93 @@
-### 1. Gerenciamento de Discos no Linux
-- **Identificação e Preparação de Novos Discos:**
-  - Use `df` para verificar discos atuais.
-  - Utilize `dmesg | grep disk` para identificar novos discos.
-  - Use `fdisk` para particionar e `mkfs.ext3` para formatar discos.
-  - Configure montagens automáticas no `/etc/fstab` utilizando o UUID do disco.
+# Material de Estudo Sistemas Operacionais
 
-### 2. Gerenciamento de Processos no Linux
-- **Comunicação entre Processos (IPC):**
-  - Técnicas como `memória compartilhada`, `pipes`, `sinais`, `semáforos`, e `filas de mensagens`.
-  - Comando `ipcs` para visualizar canais de comunicação.
+## 1. Introdução ao Linux
 
-- **Comandos para Gerenciar Processos:**
-  - `ps`, `top`, e `htop` para listar e monitorar processos.
-  - `kill` e `killall` para enviar sinais a processos.
-  - `nice` e `renice` para ajustar a prioridade dos processos.
+### Histórico
+- **Unix** surgiu em 1969 como um sistema operacional multiusuário e multitarefa.
+- **Linus Torvalds** desenvolveu o kernel Linux em 1991 para computadores pessoais, baseado em UNIX.
+- Inicialmente compartilhado na Internet, o Linux cresceu rapidamente graças à colaboração global.
+- Em menos de 10 anos, o kernel 2.4 foi lançado, com suporte a múltiplos dispositivos e plataformas (i386, Sparc, PowerPC, etc.).
 
-- **Entendendo Sinais:**
-  - Sinais como `SIGHUP (1)`, S`IGINT (2)`, `SIGTERM (15)`, e `SIGKILL (9)`.
-  - `kill -9` força a interrupção de processos, enquanto `kill -15` solicita uma interrupção graciosa.
+### Estrutura do Linux
+- **Kernel**: O núcleo do sistema que interage diretamente com o hardware. É responsável por gerenciar recursos do sistema.
+- **Utilitários**: Ferramentas e programas que permitem a interação com o sistema, como shells e editores de texto.
 
-- **Monitoramento de Processos:**
-  - Use `top` para monitoramento em tempo real.
-  - Comando `ps` para listar detalhadamente processos e `kill` para encerrar.
+### Sistema de Arquivos
+- **Estrutura em Árvore**: O Linux utiliza uma estrutura hierárquica de diretórios com um único diretório raiz (`/`).
+- **Arquivos**: São conjuntos de dados armazenados no disco. Podem ter diferentes tipos, como texto ou binário.
+- **Setor de Disco**: A menor unidade de armazenamento em um disco, geralmente de 512 bytes.
+- **Cluster**: Um grupo de setores usados para armazenar arquivos, sendo a menor quantidade de espaço em disco que pode ser alocada para um arquivo.
 
-### 3. Manipulação de Arquivos e Diretórios
-- **Comandos Básicos:**
-  - Criar diretórios: `mkdir`.
-  - Navegar no sistema de arquivos: `cd`, `ls`.
-  - Manipular arquivos: `touch`, `mv`, `cp`, `rm`.
+### Conceito de Multiusuário
+- O Linux suporta múltiplos usuários, cada um com um ID único e senha.
+- Sistemas multiusuário permitem que várias pessoas acessem recursos do sistema com permissões restritas.
 
-### 4. Controle de Usuários e Grupos no Linux
-- **Gerenciamento de Usuários:**
-  - Arquivo `/etc/passwd` armazena informações de usuários.
-  - Comandos como `useradd`, `userdel`, `usermod`.
+### Comandos de Sobrevivência no Linux
+- **Manuais**: Utilize `man <comando>` para acessar a documentação de comandos.
+- **Comandos Essenciais**:
+  - `pwd`: Mostra o diretório atual.
+  - `passwd`: Altera a senha do usuário.
+  - `su/sudo`: Executa comandos com privilégios de superusuário.
+  - `ls`: Lista arquivos e diretórios.
+  - `mkdir`: Cria novos diretórios.
+  - `rm`: Remove arquivos ou diretórios.
 
-- **Gerenciamento de Grupos:**
-  - Comandos `groupadd`, `groupdel`, `groupmod`.
-  - Arquivo `/etc/group` contém informações sobre grupos e seus membros.
+## 2. Gerenciamento de Sistemas Operacionais
 
-### 5. Gerenciamento de Memória
-- **Conceitos Básicos:**
-  - Memória física (**RAM**) e virtual (**swap**).
-  - O kernel gerencia a memória, alocando e desalocando conforme necessário.
+### Interface e Hardware
+- **Gerenciador de Dispositivos**: Controla o funcionamento dos dispositivos conectados ao sistema.
+- **IRQ (Interrupção)**: Mecanismo que permite dispositivos de hardware interromperem o processador para atenção imediata.
+- **Mapeamento de Hardware**: Processo de alocação de recursos de hardware para garantir que os dispositivos funcionem corretamente.
 
-- **Monitoramento:**
-  - `free` para verificar uso de memória.
-  - `vmstat` para estatísticas de memória virtual e sistema.
+### Tipos de Sistemas
+- **Usuário**: Sistemas voltados para uso pessoal.
+- **Servidor**: Sistemas projetados para fornecer serviços a outros computadores em uma rede.
 
-- **Técnicas de Gerenciamento:**
-  - **Paginação e segmentação** para gerenciamento eficiente.
-  - **Swapping** para liberar **RAM** movendo processos inativos para o disco.
+### Desempenho e Segurança
+- **Desempenho**: Linux é geralmente mais rápido em operações de banco de dados comparado ao Windows.
+- **Segurança**: Embora o Linux seja considerado seguro, a experiência dos administradores pode impactar a segurança. Profissionais especializados em Linux são comuns, mas é preciso ter cuidado com a configuração e manutenção.
 
-### Conceitos Adicionais
-- **Prioridades de Processos:**
-  - Valores de `nice` variando de -20 (mais alta prioridade) a +19 (mais baixa).
-  - Ajuste de prioridade usando `nice` e `renice`.
+## 3. Estrutura de Arquivos e Diretórios
 
-- **Execução em Segundo Plano:**
-  - Utilize o operador `&` para rodar processos em segundo plano.
-  - Comando `bg` para mover processos para segundo plano e `fg` para trazê-los de volta.
+### Unidades de Armazenamento
+- **Setor de Disco**: Unidade mínima de armazenamento em discos, geralmente 512 bytes.
+- **Cluster**: Múltiplos setores formam um cluster, a menor unidade de espaço que pode ser alocada.
 
-- **Uso de `nohup`:**
-  - Comando para executar processos que ignoram o sinal de hangup, permitindo logout sem encerrar o processo.
+### Atributos de Arquivos
+- **Nome**: Identificador do arquivo, que pode ser case sensitive.
+- **Atributos**: Incluem tipo, tamanho, permissões, e data/hora de criação ou modificação.
+- **Estrutura Interna**: Sequência de bytes ou registros, que podem ser interpretados de diferentes formas.
 
+### Sistemas de Arquivos
+- **Linux**:
+  - **EXT2/EXT3/EXT4**: Suportam grandes volumes e arquivos, com EXT4 sendo uma evolução de EXT2 e EXT3.
+  - **ReiserFS**: Conhecido por excelente desempenho em manipulação de muitos arquivos pequenos.
+- **Windows**:
+  - **NTFS**: Suporta grandes volumes e arquivos, com segurança integrada.
+  - **FAT32**: Mais antigo, com limitações de tamanho de arquivo.
+  - **ReFS**: Sistema mais recente, projetado para alta resiliência.
 
+### Comandos de Arquivos
+- **chmod**: Altera permissões de arquivos e diretórios.
+- **useradd/addgroup**: Gerencia usuários e grupos no sistema.
 
-# Comandos
+## 4. Gerenciamento de Recursos no Linux
+
+### Processos
+- **Comunicação entre Processos (IPC)**: Utiliza técnicas como memória compartilhada, pipes, sinais, semáforos e filas de mensagens.
+- **Comandos**:
+  - `ps`: Lista processos em execução.
+  - `top`: Monitora processos em tempo real.
+  - `kill`: Envia sinais para processos, terminando-os se necessário.
+  - `nice`: Ajusta a prioridade de um processo.
+
+### Memória
+- **Memória Física (RAM)** e **Memória Virtual (swap)**: O kernel gerencia a alocação de memória para processos, movendo dados para swap quando necessário.
+- **Monitoramento**:
+  - `free`: Mostra o uso de memória.
+  - `vmstat`: Fornece estatísticas sobre memória virtual e sistema.
+
+## 5. Comandos Essenciais no Linux
 
 | Comando         | Função                                                                                  |
 |-----------------|-----------------------------------------------------------------------------------------|
@@ -82,6 +104,9 @@
 | `mv`            | Move ou renomeia arquivos e diretórios.                                                 |
 | `cp`            | Copia arquivos e diretórios.                                                            |
 | `rm`            | Remove arquivos ou diretórios.                                                          |
+| `pwd`           | Exibe a localização na árvore de diretórios.                                            |
+| `passwd`        | Altera a senha de um usuário.                                                           |
+| `su/sudo`       | Entra no modo super usuário.                                                            |
 | `ps`            | Exibe informações sobre processos em execução.                                          |
 | `top`           | Monitora processos em tempo real.                                                       |
 | `htop`          | Uma versão interativa e mais amigável do top.                                           |
@@ -93,7 +118,6 @@
 | `useradd`       | Adiciona novos usuários ao sistema.                                                     |
 | `userdel`       | Remove usuários do sistema.                                                             |
 | `usermod`       | Modifica contas de usuário.                                                             |
-| `passwd`        | Altera a senha de um usuário.                                                           |
 | `groupadd`      | Cria um novo grupo.                                                                     |
 | `groupdel`      | Remove um grupo.                                                                        |
 | `groupmod`      | Modifica informações de um grupo.                                                       |
@@ -101,3 +125,16 @@
 | `id`            | Exibe informações sobre o usuário atual ou especificado.                                |
 | `chfn`          | Altera informações adicionais do usuário.                                               |
 | `last`          | Exibe um histórico de logins no sistema.                                                |
+| `history`       | Mostra os últimos comandos digitados.                                                   |
+| `!<número>`     | Reexecuta o comando <número> da lista de histórico.                                     |
+
+## 6. Conceitos Adicionais
+
+### Prioridades e Execução
+- **Prioridades de Processos**: Ajustadas com `nice` e `renice`, variando de -20 (prioridade alta) a +19 (prioridade baixa).
+- **Execução em Segundo Plano**: Use `&` para colocar processos em segundo plano, `bg` para continuar em segundo plano e `fg` para trazer de volta ao primeiro plano.
+- **Uso de `nohup`**: Permite que processos continuem executando após logout.
+
+### Segurança
+- **Sistema de Arquivos**: Protegido por listas de controle de acesso, que definem permissões de leitura, escrita e execução.
+- **Permissões**: Podem ser alteradas com `chmod`, `chown`, e `chgrp` para controlar o acesso a arquivos e diretórios.
