@@ -8,15 +8,14 @@
 >- **Linus Torvalds** desenvolveu o kernel Linux em 1991 para computadores pessoais, baseado em UNIX.
 >- Inicialmente compartilhado na Internet, o Linux cresceu rapidamente graças à colaboração global.
 >- Em menos de 10 anos, o kernel 2.4 foi lançado, com suporte a múltiplos dispositivos e plataformas (i386, Sparc, PowerPC, etc.).
-><br>
+>
 >
 > ### Linux hoje e seu desenvolvimento
 >- O desenvolvimento do Linux é centralizado por Linus Torvalds.
 >- Qualquer pessoa no mundo pode colaborar com o kernel, que está sob a GPL.
-><br>
+>
 >
 >_GPL (Gnu Public License) é a licença criada por Stallman, que permite a distribuição do código e do programa livremente, e permite a alteração, sob algumas condições._
-><br>
 >
 > ### Estrutura do Linux
 > _Mas o que é Linux? Kernel, utilitários, etc_
@@ -32,17 +31,16 @@
 >- 1 byte = 8 bits. 1 bit assume valor 0 ou 1.
 >- Discos magnéticos: divididos em trilhas (circulares), e cada trilha é dividida em setores. Um setor, em geral, tem 512 bytes.
 >- Utilização do conceito de **arquivos e diretórios.**
-><br>
 >
 >Arquivo: um conjunto de setores no disco, associado a um nome
 >- O arquivo nada mais é que uma sequência de bits (0 e 1), mas que podem assumir diversos tipos (arquivo binário, arquivo texto, etc).
-><br>
+>
 >
 >Cada sistema permite uma maneira de organizar os discos e arquivos. o UNIX e o Linux utilizam a estrutura de árvores.
-><br>
+>
 >
 >Para o agrupamento de arquivos, existe o conceito de diretório.
-><br>
+>
 >
 >Árvore: o sistema contém apenas um diretório Raiz (root), e todos outros estão "dentro" da raiz.
 >- Um diretório pode conter vários diretórios.
@@ -63,11 +61,9 @@
 >#### Palavra essencial: MANUAIS
 >- `man <comando>`
 >- `man -k <palavra>` ou `apropos <palavra>`
-><br>
 >
 >#### Tecla importante:
 >- Control + C ->Encerrar terminal
-><br>
 >
 >#### Comandos
 >- `pwd`: exibe a localização na árvore de diretórios
@@ -183,43 +179,43 @@
 
 # 5. Comandos Essenciais no Linux
 
-| Comando         | Função                                                                                  |
-|--|--|
-| `df`            | Exibe o espaço em disco usado e disponível em sistemas de arquivos.                     |
-| `dmesg`         | Exibe mensagens do kernel, útil para ver logs do sistema, como discos conectados.       |
-| `fdisk`         | Manipula tabelas de partição de disco.                                                  |
-| `mkfs.ext3`     | Formata uma partição para o sistema de arquivos ext3.                                   |
-| `tune2fs`       | Ajusta parâmetros de sistemas de arquivos ext2/ext3/ext4.                               |
-| `blkid`         | Exibe o UUID de dispositivos, útil para configurar o fstab.                             |
-| `mkdir`         | Cria um novo diretório.                                                                 |
-| `cd`            | Navega entre diretórios.                                                                |
-| `ls`            | Lista arquivos e diretórios.                                                            |
-| `touch`         | Cria arquivos vazios ou atualiza timestamps de arquivos existentes.                     |
-| `mv`            | Move ou renomeia arquivos e diretórios.                                                 |
-| `cp`            | Copia arquivos e diretórios.                                                            |
-| `rm`            | Remove arquivos ou diretórios.                                                          |
-| `pwd`           | Exibe a localização na árvore de diretórios.                                            |
-| `passwd`        | Altera a senha de um usuário.                                                           |
-| `su/sudo`       | Entra no modo super usuário.                                                            |
-| `ps`            | Exibe informações sobre processos em execução.                                          |
-| `top`           | Monitora processos em tempo real.                                                       |
-| `kill`          | Envia sinais para processos, geralmente usados para terminar processos.                 |
-| `killall`       | Envia sinais para todos os processos que correspondem ao nome dado.                     |
-| `nice`          | Inicia um processo com uma prioridade alterada.                                         |
-| `renice`        | Altera a prioridade de processos em execução.                                           |
-| `nohup`         | Executa um comando ignorando sinais de hangup.                                          |
-| `useradd`       | Adiciona novos usuários ao sistema.                                                     |
-| `userdel`       | Remove usuários do sistema.                                                             |
-| `usermod`       | Modifica contas de usuário.                                                             |
-| `groupadd`      | Cria um novo grupo.                                                                     |
-| `groupdel`      | Remove um grupo.                                                                        |
-| `groupmod`      | Modifica informações de um grupo.                                                       |
-| `logname`       | Exibe o nome do usuário atual.                                                          |
-| `id`            | Exibe informações sobre o usuário atual ou especificado.                                |
-| `chfn`          | Altera informações adicionais do usuário.                                               |
-| `last`          | Exibe um histórico de logins no sistema.                                                |
-| `history`       | Mostra os últimos comandos digitados.                                                   |
-| `!<número>`     | Reexecuta o comando <número>da lista de histórico.                                     |
+| Comando     | Função                                                                            |
+| ----------- | --------------------------------------------------------------------------------- |
+| `df`        | Exibe o espaço em disco usado e disponível em sistemas de arquivos.               |
+| `dmesg`     | Exibe mensagens do kernel, útil para ver logs do sistema, como discos conectados. |
+| `fdisk`     | Manipula tabelas de partição de disco.                                            |
+| `mkfs.ext3` | Formata uma partição para o sistema de arquivos ext3.                             |
+| `tune2fs`   | Ajusta parâmetros de sistemas de arquivos ext2/ext3/ext4.                         |
+| `blkid`     | Exibe o UUID de dispositivos, útil para configurar o fstab.                       |
+| `mkdir`     | Cria um novo diretório.                                                           |
+| `cd`        | Navega entre diretórios.                                                          |
+| `ls`        | Lista arquivos e diretórios.                                                      |
+| `touch`     | Cria arquivos vazios ou atualiza timestamps de arquivos existentes.               |
+| `mv`        | Move ou renomeia arquivos e diretórios.                                           |
+| `cp`        | Copia arquivos e diretórios.                                                      |
+| `rm`        | Remove arquivos ou diretórios.                                                    |
+| `pwd`       | Exibe a localização na árvore de diretórios.                                      |
+| `passwd`    | Altera a senha de um usuário.                                                     |
+| `su/sudo`   | Entra no modo super usuário.                                                      |
+| `ps`        | Exibe informações sobre processos em execução.                                    |
+| `top`       | Monitora processos em tempo real.                                                 |
+| `kill`      | Envia sinais para processos, geralmente usados para terminar processos.           |
+| `killall`   | Envia sinais para todos os processos que correspondem ao nome dado.               |
+| `nice`      | Inicia um processo com uma prioridade alterada.                                   |
+| `renice`    | Altera a prioridade de processos em execução.                                     |
+| `nohup`     | Executa um comando ignorando sinais de hangup.                                    |
+| `useradd`   | Adiciona novos usuários ao sistema.                                               |
+| `userdel`   | Remove usuários do sistema.                                                       |
+| `usermod`   | Modifica contas de usuário.                                                       |
+| `groupadd`  | Cria um novo grupo.                                                               |
+| `groupdel`  | Remove um grupo.                                                                  |
+| `groupmod`  | Modifica informações de um grupo.                                                 |
+| `logname`   | Exibe o nome do usuário atual.                                                    |
+| `id`        | Exibe informações sobre o usuário atual ou especificado.                          |
+| `chfn`      | Altera informações adicionais do usuário.                                         |
+| `last`      | Exibe um histórico de logins no sistema.                                          |
+| `history`   | Mostra os últimos comandos digitados.                                             |
+| `!<número>` | Reexecuta o comando <número>da lista de histórico.                                |
 
 ---
 <br>
